@@ -1,0 +1,2 @@
+2021/01/21 15:24:09 [error] 28#28: *7 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.3:9000", host: "0.0.0.0"
+2021/01/21 15:24:09 [error] 28#28: *7 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.18.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://172.18.0.3:9000", host: "0.0.0.0", referrer: "http://0.0.0.0/"

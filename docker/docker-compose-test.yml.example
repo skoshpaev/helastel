@@ -1,0 +1,33 @@
+version: "2"
+services:
+
+  nginx_test:
+    image: nginx:alpine
+    container_name: nginx_helastel_test
+    volumes:
+      - ./docker/logs/nginx_test:/var/log/nginx
+      - ./:/var/www/html
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8080:80"
+    links:
+      - fpm_test
+    networks:
+      - helastel_test
+
+  fpm_test:
+    image: koshpaevsv/php7.4
+    container_name: fpm_helastel_test
+    user: 1000:1000
+    volumes:
+      - ./:/var/www/html
+    working_dir: /var/www/html
+    expose:
+      - 9000
+    networks:
+      - helastel_test
+
+networks:
+  helastel_test:
+    external:
+      name: helastel_test
