@@ -23,9 +23,22 @@ services:
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    App\Controller\:
-        resource: '../src/Controller/'
+    App\Hexagon\Presentation\Controller\:
+        resource: '../src/Hexagon/Presentation/Controller/'
         tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    meeting.notifier:
+        class: App\Hexagon\Domain\Component\MeetingNotifier
+    report.notifier:
+        class: App\Hexagon\Domain\Component\ReportNotifier
+
+    App\Hexagon\Presentation\Controller\MeetingController:
+        class: App\Hexagon\Presentation\Controller\MeetingController
+        arguments: ['@meeting.notifier']
+
+    App\Hexagon\Presentation\Controller\ReportController:
+        class: App\Hexagon\Presentation\Controller\ReportController
+        arguments: ['@report.notifier']

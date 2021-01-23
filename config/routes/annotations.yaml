@@ -1,5 +1,5 @@
 controllers:
-    resource: ../../src/Controller/
+    resource: ../../src/Hexagon/Presentation/Controller/
     type: annotation
 
 kernel:
